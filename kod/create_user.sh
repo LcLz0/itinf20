@@ -31,6 +31,7 @@ passwd ${user_name}
 if [ "$?" -ne "0" ] ; then
 	echo "Something broke in passwd. Aborting"
 	echo "$(date +%Y-%m-%d' '%H:%M) Passwd broke" >> ${err_loc}
+	userdel -r ${user_name}
 	exit 2
 fi
 echo "$(date +%Y-%m-%d' '%H:%M) : Changed password for ${user_name}" >> ${log_loc}
