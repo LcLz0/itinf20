@@ -1,1 +1,0 @@
-sed '2,4!d' somefile.txt
