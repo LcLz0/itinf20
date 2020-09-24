@@ -8,7 +8,3 @@ file_len=$(wc -l ${name_file} | cut -d ' ' -f 1)
 for (( i=1; i<=$file_len; i++ )) ; do
 	awk -v ite=$i 'NR==ite' $name_file
 done
-
-#for i in {1..$file_len} ; do
-#	echo $i
-#done
