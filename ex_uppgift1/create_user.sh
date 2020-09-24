@@ -56,6 +56,7 @@ for (( i=1; i<=$file_len; i++ )) ; do
 	l_name=$(echo $user_name | cut -d ' ' -f 2)		 # Cut whole last name
 	user_name=$f_name$l_name				 # Add first char to last name
 	useradd -p $passw $user_name				 # Run useradd
+
 	exit_check=$?	
 	
 	if [ $exit_check -eq 3 ] ; then
