@@ -14,5 +14,13 @@ if [ ! -f $1 ] ; then
 	echo "Incorrect file. Try again"
 	exit 1
 fi
-echo "Hurra wooo"
+
 # Declare variables that will be used through script.
+file_len=$(wc -l $1 | cut -d ' ' -f 1)
+file_list=$1
+
+for (( i=1; i<$file_len; i++ )) 
+do 
+	sed '$i!d' $file_list
+	#echo $i
+done
