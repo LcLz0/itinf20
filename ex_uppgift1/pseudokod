@@ -7,7 +7,8 @@ Deklarera variabler:
 
 
 for-loop som kör igenom namnfilen, en line i taget:
-	sed klipp ut en line
+	awk klipp ut en line
+	omvandla till lowercase
 	omvandla den till korrekt format med cut
 	skapa användare och sätt lösenord
 	klar
