@@ -19,8 +19,6 @@ fi
 file_len=$(wc -l $1 | cut -d ' ' -f 1)
 file_list=$1
 
-for (( i=1; i<$file_len; i++ )) 
-do 
-	sed '$i!d' $file_list
-	#echo $i
+for (( i=1; i<$file_len; i++ )) ; do
+	awk -v ite=$i 'NR==ite' $file_list
 done
