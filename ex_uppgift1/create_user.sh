@@ -12,8 +12,6 @@
 #					   Todo 	
 # * : Add sudo check
 #
-# x : Generalize passw function, either from input or from already hashed file. New file 
-#
 # x : Streamline f_name l_name, should only be execution on user_name without extra vars
 #
 # * : Add logging
