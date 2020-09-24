@@ -1,0 +1,7 @@
+##  Samling av kommandon som kommer vara användbara
+
+# Läs ut hur många lines det är i namnfilen
+cat -n <file> | tail -n 1 | cut -c 6  ## 
+
+# SED:a ut specifika linjer ur en fil, mellan linje x och y
+sed 'x,y!d' <file>
