@@ -16,15 +16,19 @@
 # 4 : Streamline f_name l_name, should only be execution on user_name without extra vars
 # 5 : Add logging
 ###################################################################################################
+
+# Declare variables that will be used through script.
+file_len=$(wc -l $1 | cut -d ' ' -f 1)  			 # Gets total len of arg file
+file_name=$1							 # Var for $1, readability only
+# Log locations
+#log_loc=/var/log/usercreation/create.log
+#err_loc=/var/log/usercreation/error.log
+
 # Check that arg exists and is a regular file
 if [ ! -f $1 ] ; then
 	echo "Incorrect file. Try again"
 	exit 1
 fi
-
-# Declare variables that will be used through script.
-file_len=$(wc -l $1 | cut -d ' ' -f 1)  			 # Gets total len of arg file
-file_name=$1							 # Var for $1, readability only
 
 # Create hashed version of passwd, store in passw.
 # Change Linux4Ever to variable to make it generalized.
