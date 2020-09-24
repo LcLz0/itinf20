@@ -15,6 +15,8 @@
 # 3 : Generalize passw function, either from input or from already hashed file. Same file?
 # 4 : Streamline f_name l_name, should only be execution on user_name without extra vars
 # 5 : Add logging
+# 6 : Add testing on username, to check for invalid characters in name. Use if-block in for-loop.Use$i to pass information to log about on what line incorrect name is found. 
+#
 ###################################################################################################
 
 # Declare variables that will be used through script.
