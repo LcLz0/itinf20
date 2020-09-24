@@ -16,11 +16,14 @@
 #
 # x : Streamline f_name l_name, should only be execution on user_name without extra vars
 #
-# x : Add logging
+# * : Add logging
 #
-# x : Add testing on username, to check for invalid characters in name. Use if-block in for-loop.
+# * : Add testing on username, to check for invalid characters in name. Use if-block in for-loop.
 #     Use $i to pass information to log about on what line incorrect name is found. 
 #
+# * : Get arg check working with no args
+# 
+# x : Get script working with >1 args
 ###################################################################################################
 
 # Check for root privs
@@ -30,7 +33,7 @@ if [ $(id -u) -ne 0 ] ; then
 fi
 
 # Check that arg exists and is a regular file
-if [ ! -f $1 ] ; then
+if [ ! -f $1 ] || [ -z $1 ] ; then
 	echo "Incorrect file. Try again"
 	exit 2
 fi
