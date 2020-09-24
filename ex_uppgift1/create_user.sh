@@ -8,7 +8,14 @@
 #					Error codes
 # 1 : Incorrect file passed  
 ###################################################################################################
-
+###################################################################################################
+#					   Todo 	
+# 1 : Add sudo check
+# 2 : Add error code for useradd
+# 3 : Generalize passw function, either from input or from already hashed file. Same file?
+# 4 : Streamline f_name l_name, should only be execution on user_name without extra vars
+# 5 : Add logging
+###################################################################################################
 # Check that arg exists and is a regular file
 if [ ! -f $1 ] ; then
 	echo "Incorrect file. Try again"
@@ -16,9 +23,12 @@ if [ ! -f $1 ] ; then
 fi
 
 # Declare variables that will be used through script.
-file_len=$(wc -l $1 | cut -d ' ' -f 1)
-file_name=$1
-passw=$(perl -e 'print crypt($ARGV[0], "password")' Linux4Ever)
+file_len=$(wc -l $1 | cut -d ' ' -f 1)  			 # Gets total len of arg file
+file_name=$1							 # Var for $1, readability only
+
+# Create hashed version of passwd, store in passw.
+# Change Linux4Ever to variable to make it generalized.
+passw=$(perl -e 'print crypt($ARGV[0], "password")' Linux4Ever)  
 
 for (( i=1; i<=$file_len; i++ )) ; do
 	user_name=$(awk -v ite=$i 'NR==ite' $file_name)		 # Read username
@@ -26,5 +36,5 @@ for (( i=1; i<=$file_len; i++ )) ; do
 	f_name=$(echo $user_name | cut -c 1)			 # Cut first char of first name
 	l_name=$(echo $user_name | cut -d ' ' -f 2)		 # Cut whole last name
 	user_name=$f_name$l_name				 # Add first char to last name
-	useradd -p $passw $user_name
+	useradd -p $passw $user_name				 # Run useradd
 done
