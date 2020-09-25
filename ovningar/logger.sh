@@ -22,7 +22,3 @@ logger.warning(){
 logger.error(){
 	logger [ERROR] : $*
 }
-
-logger.info "Starting script"
-logger.warning "Heavy calculation"
-logger.error "Calculation complete"
