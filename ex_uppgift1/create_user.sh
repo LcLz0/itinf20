@@ -54,9 +54,9 @@ for (( i=1; i<=$file_len; i++ )) ; do
 	l_name=$(echo $user_name | cut -d ' ' -f 2)		 # Cut whole last name
 	user_name=$f_name$l_name				 # Add first char to last name
 	useradd -p $passw $user_name				 # Run useradd
-
-	exit_check=$?	
 	
+	exit_check=$?
+
 	if [ $exit_check -eq 3 ] ; then
 		echo "Incorrect username. Refer to log for more info."
 		echo "$(date +%Y-%m-%d' '%H:%M) : Incorrect username on line $i" >> $err_loc
