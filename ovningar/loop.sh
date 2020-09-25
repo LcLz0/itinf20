@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Check for correct number of args
 
@@ -13,20 +13,23 @@ count=$2
 loop_text=$3
 i=0
 
-if [ $loop_type == "while" ] ; then
+if [ $loop_type = "while" ] ; then
 	while [ $i -lt $count ] ; do
 		echo $loop_text
 		i=$((${i}+1))
 	done
 
-elif [ $loop_type == "for" ] ; then
+elif [ $loop_type = "for" ] ; then
 	for i in `seq 1 ${count}`  ; do
 		echo $loop_text
 	done
 
-elif [ $loop_type == "until" ] ; then
+elif [ $loop_type = "until" ] ; then
 	until [ $i -eq $count ] ; do
 		echo $loop_text
 		i=$((${i}+1))
 	done
+else
+	echo "Incorrect loop type. Aborting"
+	exit 2
 fi
