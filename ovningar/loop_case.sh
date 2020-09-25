@@ -28,6 +28,7 @@ case $loop_type in
 		for i in `seq 1 ${count}`  ; do
 			echo $loop_text
 		done
+		exit 0
 		;;
 	
 	until)
@@ -35,5 +36,6 @@ case $loop_type in
 			echo $loop_text
 			i=$((${i}+1))
 		done
+		exit 0
 		;;
 esac
