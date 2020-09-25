@@ -9,7 +9,6 @@ logger(){
 	script=$0
 	#severity=INFO
 	echo "${timestamp} ${script} ${@} "
-        1>> $log_file	
 }
 
 logger.info(){
@@ -26,5 +25,4 @@ logger.error(){
 
 logger.info "Starting script"
 logger.warning "Heavy calculation"
-sleep 3
 logger.error "Calculation complete"
