@@ -17,17 +17,20 @@ if [ $loop_type = "while" ] ; then
 	while [ $i -lt $count ] ; do
 		echo $loop_text
 		i=$((${i}+1))
+		exit 0
 	done
 
 elif [ $loop_type = "for" ] ; then
 	for i in `seq 1 ${count}`  ; do
 		echo $loop_text
+		exit 0
 	done
 
 elif [ $loop_type = "until" ] ; then
 	until [ $i -eq $count ] ; do
 		echo $loop_text
 		i=$((${i}+1))
+		exit 0
 	done
 else
 	echo "Incorrect loop type. Aborting"
