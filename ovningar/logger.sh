@@ -13,15 +13,15 @@ logger(){
 }
 
 logger.info(){
-	logger INFO: $*
+	logger [INFO] : $*
 }
 
 logger.warning(){
-	logger WARNING: $*
+	logger [WARNING] : $*
 }
 
 logger.error(){
-	logger ERROR: $*
+	logger [ERROR] : $*
 }
 
 logger.info "Starting script"
