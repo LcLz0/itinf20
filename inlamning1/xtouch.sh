@@ -30,7 +30,7 @@ case $file_name in
 
 	*)
 		# Script will create a file, name of arg+.sh, adding a shebang to the top
-		echo "#!/bin/bash" >> ${file_name}.sh
+		echo "#!/bin/bash" > ${file_name}.sh
 		chmod 754 ${file_name}.sh
 		exit 0
 	;;
