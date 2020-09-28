@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define logfile
-log_file=logger.log
+#log_file=logger.log
 
 # Define logger function
 logger(){
@@ -9,6 +9,7 @@ logger(){
 	script=$0
 	#severity=INFO
 	echo "${timestamp} ${script} ${@} "
+	echo "${timestamp} ${script} ${@} " >> ${script}.log
 }
 
 logger.info(){
