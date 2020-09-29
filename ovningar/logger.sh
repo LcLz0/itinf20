@@ -9,7 +9,7 @@ logger(){
 	script=$0
 	#severity=INFO
 	echo "${timestamp} ${script} ${@} "
-	echo "${timestamp} ${script} ${@} " >> ${script}.log
+	#echo "${timestamp} ${script} ${@} " >> ${script}.log
 }
 
 logger.info(){
