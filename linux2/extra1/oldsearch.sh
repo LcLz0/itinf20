@@ -1,7 +1,13 @@
 #!/bin/bash
 
+# Checks directory where script is run for files (not dirs) older than $deltime
+# If file is older than $deltime, delete
+
+# Set deltime in epoch time. Default 2 days
+deltime=172800
+
 nixtime=$(date +%s)
-checktime=$(($nixtime-172800))
+checktime=$((${nixtime}-${deltime}))
 
 for i in $(ls $pwd); do
 	file_ctime=$(/usr/bin/stat -c %W $i)
