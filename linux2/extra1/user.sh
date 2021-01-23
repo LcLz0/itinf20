@@ -1,16 +1,16 @@
 #!/bin/bash
 
+# Check for root
+if [ ! $(id -u) -eq 0 ]; then
+	echo "You need to be root for this to work"
+	exit 3
+fi
+
 # Inital checks for correct num of args and input file
 if [ -f $1 ] || [ -f $2 ] && [ $# -ne 2 ]; then
 	echo "Incorrect arguments"
 	echo "Specify inputfile and -a to add users or -d to delete users"
 	exit 1
-fi
-
-# Check for root
-if [ ! $(id -u) -eq 0 ]; then
-	echo "You need to be root for this to work"
-	exit 3
 fi
 
 # Passwd block
