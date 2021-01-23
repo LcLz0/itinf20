@@ -1,6 +1,6 @@
 #!/bin/bash
 # Grep for arithmetic operator
-operator=$(echo "${@}" |egrep -o '(\+|-|\*|\/)')
+operator=$(echo "${@}" | egrep '[0-9\+-\*\/]' | egrep -o '(\+|-|\*|\/)')
 
 # Get numbers
 num1=$(echo $@ | cut -d "${operator}" -f 1)
