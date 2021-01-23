@@ -1,0 +1,23 @@
+##  Samling av kommandon som kommer vara användbara
+
+### Läs ut hur många lines det är i namnfilen
+wc -l <file> | cut -d ' ' -f 1
+
+### SED:a ut specifika linjer ur en fil, mellan linje x och y
+sed 'x!d' <file>
+
+### AWK istället för sed där x är line number.
+awk 'NR=x' 
+
+För att kunna använda en variabel
+i uttrycket använder man awk -v awk_variabel=värde, där värde kan vara en
+bashvariabel. Då blir uttrycket istället
+awk -v awk_variabel=bash_variabel 'NR==awk_variabel' <fil>
+
+### AWK för att omvandla alla bokstäver i en sträng till gemener.
+echo 'Sträng' | awk '{print tolower($0)}'
+
+### Perl-commando för att omvandla cleartext till en hash som passwd
+#accepterar. I exemplet är Linux4Ever lösenordet, går att ersätta med något
+#annat eller en variabel för att generalisera.
+perl -e 'print crypt($ARGV[0], "password")' Linux4Ever

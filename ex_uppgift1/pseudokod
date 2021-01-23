@@ -1,0 +1,14 @@
+Sanitycheck, kolla att arg faktiskt är en fil som finns
+
+set -e
+
+Deklarera variabler:
+	file_len för fillängden, i for
+
+
+for-loop som kör igenom namnfilen, en line i taget:
+	awk klipp ut en line
+	omvandla till lowercase
+	omvandla den till korrekt format med cut
+	skapa användare och sätt lösenord
+	klar
