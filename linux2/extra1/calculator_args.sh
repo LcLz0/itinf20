@@ -1,10 +1,13 @@
 #!/bin/bash
 # Grep for arithmetic operator
-operator=$(echo "${@}" | egrep '[0-9\+-\*\/]' | egrep -o '(\+|-|\*|\/)')
+operator=$(echo "${@}" | egrep -o '(\+|-|\*|\/)')
+
+# Clean input
+args=$(echo "${*}" | egrep -o '[0-9\+-\*\/]')
 
 # Get numbers
-num1=$(echo $@ | cut -d "${operator}" -f 1)
-num2=$(echo $@ | cut -d "${operator}" -f 2)
+num1=$(echo $args | cut -d "${operator}" -f 1)
+num2=$(echo $args | cut -d "${operator}" -f 2)
 
 # Perform calculation
 echo $((${num1}${operator}${num2}))
