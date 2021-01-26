@@ -1,0 +1,12 @@
+[Unit]
+Description=Filechecker service to control if file is switched
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu
+ExecStart=/home/ubuntu/filecheck.sh
+Restart=always
+type=simple
+
+[Install]
+WantedBy=multi-user.target
